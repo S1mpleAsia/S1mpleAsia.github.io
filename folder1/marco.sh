@@ -1,6 +1,5 @@
 #!/bin/bash
 
 marco() {
-    currentDir=$(pwd)
-    export currentDir
+    export currentDir=$(pwd)
 }
