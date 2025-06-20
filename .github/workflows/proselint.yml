@@ -19,4 +19,4 @@ jobs:
       - name: Install proselint
         run: pip install proselint
       - name: Run proselint
-        run: $(find . -name "*.md" | xargs proselint)
+        run: find . -name "*.md" | xargs proselint
