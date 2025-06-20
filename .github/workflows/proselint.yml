@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - main
+
+name: "Trigger: Linter check"
+permissions: {}
+
+jobs:
+  proselint:
+    name: Proselint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10.12"
+      - name: Install proselint
+        run: pip install proselint
+      - name: Run proselint
+        run: $(find . -name "*.md" | xargs proselint)
